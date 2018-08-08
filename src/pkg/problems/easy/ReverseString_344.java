@@ -12,11 +12,19 @@ package pkg.problems.easy;
  */
 public class ReverseString_344 {
 
-	/**
-	 * @param args
-	 */
+	public String reverseString(String s) {
+		StringBuilder sb1 = new StringBuilder("");
+		char[] cArr = s.toCharArray();
+		for (int i = cArr.length-1; i >= 0  ; i--) {
+			sb1.append(cArr[i]);
+		}
+		return sb1.toString();
+	}
+
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+		ReverseString_344 rS = new ReverseString_344();
+		
+		System.out.println(rS.reverseString("hello"));
 
 	}
 
