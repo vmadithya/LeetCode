@@ -40,7 +40,38 @@ import java.util.HashMap;
  * = 4.
  *
  */
-public class RomanToInteger {
+public class RomanToInteger_13 {
+	
+	public int romanToInt1(String s) {
+		int total = 0;
+		HashMap<Character, Integer> hm = new HashMap<Character, Integer>();
+		hm.put('I', 1);
+		hm.put('V', 5);
+		hm.put('X', 10);
+		hm.put('L', 50);
+		hm.put('C', 100);
+		hm.put('D', 500);
+		hm.put('M', 1000);
+		//LVIII
+		//hm.put("IV", 4);
+		//hm.put("IX", 9);
+		//hm.put("XL", 40);
+		//hm.put("XC", 90);
+		//hm.put("CD", 400);
+		//hm.put("CM", 900);
+		char[] c = s.toCharArray();
+		for (int i = s.length()-1; i > 0; i--) {
+			int temp = i - 1;
+			if (hm.get(c[i]) <= hm.get(c[temp])) {
+				total += hm.get(c[i]);
+			} else {
+				total -= hm.get(c[i]);
+			}
+
+		}
+		total += hm.get(c[0]);
+		return total;
+	}
 
 	public int romanToInt(String s) {
 		char[] c = s.toCharArray();
@@ -104,8 +135,8 @@ public class RomanToInteger {
 	}
 
 	public static void main(String[] args) {
-		RomanToInteger r2I = new RomanToInteger();
-		System.out.println(r2I.romanToInt("LVIII"));
+		RomanToInteger_13 r2I = new RomanToInteger_13();
+		System.out.println(r2I.romanToInt("MCMXCIV"));
 	}
 
 }
