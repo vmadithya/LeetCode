@@ -1,4 +1,7 @@
 package pkg.problems.easy;
+
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
 
@@ -29,29 +32,37 @@ import java.util.Iterator;
  */
 public class UncommonFromSentences_884 {
 
-public String[] uncommonFromSentences(String A, String B) {
-        String[] result = {""};
-        HashSet<String> hs = new HashSet<>();
-        
-        for (String st : A.concat(B).split("\\s")) {
-        	hs.add(st);
-        }
-        Iterator<String> i = hs.iterator();
-        int j = 0;
-        while (i.hasNext()) {
-        	result[j] = i.next();
-        	System.out.println(result[j]);
-        	j++;
-        	
-        }
-            
-        
-        return result;
-    }
+	public String[] uncommonFromSentences(String A, String B) {
+		String[] result = new String[200];
+		ArrayList<String> al = new ArrayList<String>();
+		HashMap<String, Integer> hm = new HashMap<String, Integer>();
+		for (String st : A.concat(" ").concat(B).split("\\s")) {
+			if (hm.containsKey(st) && hm.get(st) > 0) {
+				hm.put(st, hm.get(st)+1);
+			} else {
+				hm.put(st, 1);
+			}
+		}
+		int j = 0;
+		for (String s : hm.keySet()) {
+			if (hm.get(s) == 1) {
+				al.add(s);
+				result[j++] = s;
+			}
+		}
+		String[] bar = al.toArray(new String[al.size()]);
+		
+		return bar;
+	}
+
 	public static void main(String[] args) {
 		UncommonFromSentences_884 ufs = new UncommonFromSentences_884();
+
+		String[] finalid = ufs.uncommonFromSentences("s z z z s" , "s z ejt");
 		
-		String [] finalid = ufs.uncommonFromSentences("apple apple", "banana");
+		for (String s: finalid) {
+			System.out.println(s + "   ");
+		}
 
 	}
 
