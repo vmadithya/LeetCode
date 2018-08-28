@@ -52,24 +52,17 @@ public class RomanToInteger_13 {
 		hm.put('C', 100);
 		hm.put('D', 500);
 		hm.put('M', 1000);
-		//LVIII
-		//hm.put("IV", 4);
-		//hm.put("IX", 9);
-		//hm.put("XL", 40);
-		//hm.put("XC", 90);
-		//hm.put("CD", 400);
-		//hm.put("CM", 900);
 		char[] c = s.toCharArray();
-		for (int i = s.length()-1; i > 0; i--) {
-			int temp = i - 1;
-			if (hm.get(c[i]) <= hm.get(c[temp])) {
+		total += hm.get(s.charAt(s.length()-1));
+		for (int i = s.length()-2; i >= 0; i--) {
+			if (hm.get(c[i]) >= hm.get(c[i+1])) {
 				total += hm.get(c[i]);
 			} else {
 				total -= hm.get(c[i]);
 			}
-
+			
 		}
-		total += hm.get(c[0]);
+
 		return total;
 	}
 
@@ -136,7 +129,8 @@ public class RomanToInteger_13 {
 
 	public static void main(String[] args) {
 		RomanToInteger_13 r2I = new RomanToInteger_13();
-		System.out.println(r2I.romanToInt("MCMXCIV"));
+		System.out.println("original --> "+r2I.romanToInt("LVIII"));
+		System.out.println("modified --> "+r2I.romanToInt1("LVIII"));
 	}
 
 }
