@@ -11,7 +11,7 @@ package pkg.problems.easy;
  * 
  * Note: 0 ≤ x, y < 231.
  * 
- * Example:
+ * Example: 0001 0100
  * 
  * Input: x = 1, y = 4
  * 

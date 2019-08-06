@@ -43,7 +43,7 @@ public class JewelsAndStones_771 {
 					count++;
 			}
 		}
-		System.out.println("Inputs: " + jewel + stones + "-->  Output Count: " + count);
+		System.out.println("Inputs: " + jewel + "--"+ stones + "-->  Output Count: " + count);
 		return count;
 	}
 	

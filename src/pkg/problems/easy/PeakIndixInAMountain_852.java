@@ -20,7 +20,7 @@ package pkg.problems.easy;
  * 3 <= A.length <= 10000 0 <= A[i] <= 10^6 A is a mountain, as defined above.
  *
  */
-public class PeakIndixInAMountain {
+public class PeakIndixInAMountain_852 {
 	private int binsearch(int[] A, int s, int e) {
 		int m = (s + e) / 2;
 		if (m == 0 || m == A.length)
@@ -39,7 +39,7 @@ public class PeakIndixInAMountain {
 	}
 
 	public static void main(String[] args) {
-		PeakIndixInAMountain pim = new PeakIndixInAMountain();
+		PeakIndixInAMountain_852 pim = new PeakIndixInAMountain_852();
 
 		int[] input = { 0, 1, 0 };
 		int[] input2 = {0,2,1,0};

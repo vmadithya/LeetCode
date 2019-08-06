@@ -16,29 +16,24 @@ package pkg.problems.easy;
 public class JudgeRouteCircle_657 {
 
 	public boolean judgeCircle(String moves) {
-		int res = 0;
-		boolean chgFlag = false;
+		int vres = 0,  hres= 0;
 		for (char move : moves.toCharArray()) {
 			switch (move) {
 			case 'U':
-				res++;
-				chgFlag = true;
+				vres++;
 				break;
 			case 'D':
-				res--;
-				chgFlag = true;
+				vres--;
 				break;
 			case 'R':
-				res++;
-				chgFlag = true;
+				hres++;
 				break;
 			case 'L':
-				res--;
-				chgFlag = true;
+				hres--;
 				break;
 			}
 		}
-		if (res == 0 && chgFlag)
+		if (vres == 0 && hres == 0)
 			return true;
 
 		return false;
@@ -51,6 +46,10 @@ public class JudgeRouteCircle_657 {
 		System.out.println(jrc.judgeCircle("UD"));
 		
 		System.out.println(jrc.judgeCircle("LL"));
+		
+		System.out.println(jrc.judgeCircle("UL"));
+		
+		System.out.println(jrc.judgeCircle("ULDL"));
 		
 
 	}
